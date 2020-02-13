@@ -32,8 +32,8 @@ namespace PhotoKnow {
         /// <param name="e"></param>
         private async void btnGetToken_Click(object sender, RoutedEventArgs e) {
             var grant_type = "client_credentials";
-            var client_id = "Wf9cy0jpfdzsI0F42UMRLusF";
-            var client_secret = "KODhBvyeyUTtsoiRvQm3fc6iqcWvTw6z";
+            var client_id = "******";
+            var client_secret = "******";
 
             var url = "https://aip.baidubce.com/oauth/2.0/token";
             var content = $"grant_type={grant_type}&client_id={client_id}&client_secret={client_secret}";
