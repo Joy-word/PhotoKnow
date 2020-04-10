@@ -1,0 +1,77 @@
+﻿<Window x:Class="PhotoKnowEx.Views.MainWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:PhotoKnowEx.ViewModels;assembly=PhotoKnowEx"
+        Title="PhotoKnowEx"
+        d:DesignHeight="450"
+        d:DesignWidth="800"
+        Icon="/Assets/avalonia-logo.ico"
+        mc:Ignorable="d">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Border Margin="5"
+                Background="LightGray"
+                BorderBrush="Gray"
+                BorderThickness="1">
+            <Image x:Name="img" Source="{Binding Bitmap}" />
+        </Border>
+        <StackPanel Grid.Column="1" Margin="0,10,0,0">
+            <Button x:Name="btnGetToken"
+                    HorizontalAlignment="Left"
+                    Command="{Binding GetTokenCommand}"
+                    Content="获取授权" />
+            <TextBox x:Name="tbToken"
+                     Width="300"
+                     Margin="0,10,0,0"
+                     HorizontalAlignment="Left"
+                     Text="{Binding TokenText}" />
+            <Button x:Name="btnPostToken"
+                    HorizontalAlignment="Left"
+                    Command="{Binding PostTokenCommand}"
+                    Content="赋予授权" />
+            <Button x:Name="btnGetImage"
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Left"
+                    Command="{Binding GetImageCommand}"
+                    Content="载入图片" />
+            <WrapPanel Margin="0,10,0,0">
+                <Button x:Name="btnFruits"
+                        HorizontalAlignment="Left"
+                        Command="{Binding FruitsCommand}"
+                        Content="果蔬识别" />
+                <Button x:Name="btnWine"
+                        Margin="10,0,0,0"
+                        HorizontalAlignment="Left"
+                        Command="{Binding WineCommand}"
+                        Content="红酒识别" />
+            </WrapPanel>
+
+            <TextBlock Margin="0,10,0,0" Text="Request:" />
+            <TextBox x:Name="tbRequest"
+                     Width="300"
+                     Height="100"
+                     HorizontalAlignment="Left"
+                     Text="{Binding Request}"
+                     TextWrapping="Wrap" />
+            <TextBlock Margin="0,10,0,0" Text="Response:" />
+            <TextBox x:Name="tbResponse"
+                     Width="300"
+                     Height="100"
+                     HorizontalAlignment="Left"
+                     Text="{Binding Response}"
+                     TextWrapping="Wrap" />
+        </StackPanel>
+    </Grid>
+
+</Window>

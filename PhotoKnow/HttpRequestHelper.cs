@@ -80,5 +80,13 @@ namespace PhotoKnow {
 
             return retString;
         }
+
+        public static HttpWebResponse HttpGet1(string Url, string data) {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url + (data == "" ? "" : "?") + data);
+            request.Method = "GET";
+
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            return response;
+        }
     }
 }

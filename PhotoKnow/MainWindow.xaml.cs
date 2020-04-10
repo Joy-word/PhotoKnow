@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using PhotoKnowLib;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,28 +32,46 @@ namespace PhotoKnow {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private async void btnGetToken_Click(object sender, RoutedEventArgs e) {
-            var grant_type = "client_credentials";
-            var client_id = "Wf9cy0jpfdzsI0F42UMRLusF";
-            var client_secret = "KODhBvyeyUTtsoiRvQm3fc6iqcWvTw6z";
+            Test();
+            //var grant_type = "client_credentials";
+            //var client_id = "Wf9cy0jpfdzsI0F42UMRLusF";
+            //var client_secret = "KODhBvyeyUTtsoiRvQm3fc6iqcWvTw6z";
 
-            var url = "https://aip.baidubce.com/oauth/2.0/token";
-            var content = $"grant_type={grant_type}&client_id={client_id}&client_secret={client_secret}";
-            var postUrl = $"{url}?{content}";
+            //var url = "https://aip.baidubce.com/oauth/2.0/token";
+            //var content = $"grant_type={grant_type}&client_id={client_id}&client_secret={client_secret}";
+            //var postUrl = $"{url}?{content}";
 
-            tbRequest.Text += "\n" + content;
+            //tbRequest.Text += "\n" + content;
 
-            var result = await HttpClientHelper.HttpClientPostAsync(url, content);
+            //var result = await HttpClientHelper.HttpClientPostAsync(url, content);
 
-            //List<KeyValuePair<String, String>> paraList = new List<KeyValuePair<string, string>>();
-            //paraList.Add(new KeyValuePair<string, string>("grant_type", "client_credentials"));
-            //paraList.Add(new KeyValuePair<string, string>("client_id", client_id));
-            //paraList.Add(new KeyValuePair<string, string>("client_secret", client_secret));
-            //var result = HttpClientHelper.HttpClientPost(url, new FormUrlEncodedContent(paraList));
+            ////List<KeyValuePair<String, String>> paraList = new List<KeyValuePair<string, string>>();
+            ////paraList.Add(new KeyValuePair<string, string>("grant_type", "client_credentials"));
+            ////paraList.Add(new KeyValuePair<string, string>("client_id", client_id));
+            ////paraList.Add(new KeyValuePair<string, string>("client_secret", client_secret));
+            ////var result = HttpClientHelper.HttpClientPost(url, new FormUrlEncodedContent(paraList));
 
-            tbResponse.Text += "\n" + result;
+            //tbResponse.Text += "\n" + result;
         }
 
-     
+        private void Test() {
+            string url = "https://gw.aoscdn.com/base/payment/providers/qrcode/transactions/321314058869407744?payment_account=apowersoft&response_type=image";
+            //var task = HttpClientHelper.HttpClient.GetStreamAsync(url);
+
+            //var result = task.Result;
+            //using (var ms = new MemoryStream()) {
+            //    result.CopyTo(ms);
+            //    var array = ms.ToArray();
+            //}
+            var task = HttpRequestHelper.HttpGet1(url,"");
+            var result = task.GetResponseStream();
+            using (var ms = new MemoryStream()) {
+                result.CopyTo(ms);
+                var array = ms.ToArray();
+            }
+        }
+
+
         private string access_token = "";
         private string filePath = "";
         private void btnPostToken_Click(object sender, RoutedEventArgs e) {

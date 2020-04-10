@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
-namespace PhotoKnow {
-    class HttpClientHelper {
+namespace PhotoKnowLib {
+    public class HttpClientHelper {
         private static HttpClient httpClient;
         public static HttpClient HttpClient {
             get {
@@ -36,7 +32,7 @@ namespace PhotoKnow {
                     return null;
             }
             catch (Exception ex) {
-                MessageBox.Show(ex.ToString());
+                Console.WriteLine(ex.ToString());
                 return null;
             }
         }
@@ -55,7 +51,7 @@ namespace PhotoKnow {
                     return null;
             }
             catch (Exception ex) {
-                MessageBox.Show(ex.ToString());
+                Console.WriteLine(ex.ToString());
                 return null;
             }
         }
@@ -73,7 +69,7 @@ namespace PhotoKnow {
                     return null;
             }
             catch (Exception ex) {
-                MessageBox.Show(ex.ToString());
+                Console.WriteLine(ex.ToString());
                 return null;
             }
         }
@@ -89,7 +85,7 @@ namespace PhotoKnow {
                     return null;
             }
             catch (Exception ex) {
-                MessageBox.Show(ex.ToString());
+                Console.WriteLine(ex.ToString());
                 return null;
             }
         }
@@ -107,7 +103,7 @@ namespace PhotoKnow {
                     return null;
             }
             catch (Exception ex) {
-                MessageBox.Show(ex.ToString());
+                Console.WriteLine(ex.ToString());
                 return null;
             }
         }
@@ -128,7 +124,7 @@ namespace PhotoKnow {
                     return null;
             }
             catch (Exception ex) {
-                MessageBox.Show(ex.ToString());
+                Console.WriteLine(ex.ToString());
                 return null;
             }
         }
@@ -139,7 +135,7 @@ namespace PhotoKnow {
                 return responseString.Result;
             }
             catch (Exception ex) {
-                MessageBox.Show(ex.ToString());
+                Console.WriteLine(ex.ToString());
                 return null;
             }
         }
